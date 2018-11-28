@@ -14,7 +14,7 @@ class Player:
         return 'rock'
 
     def learn(self, my_move, their_move):
-        pass
+        self.my_move = their_move
 
 # Create a player subclass that plays randomly
 
@@ -32,6 +32,14 @@ class HumanPlayer(Player):
                 return your_move
             else:
                 print("Try again")
+
+
+class ReflectPlayer(Player):
+    def __init__(self):
+        self.my_move = random.choice(moves)
+
+    def move(self):
+        return self.my_move
 
 
 def beats(one, two):
@@ -84,5 +92,5 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), RandomPlayer())
+    game = Game(HumanPlayer(), ReflectPlayer())
     game.play_game()
