@@ -42,11 +42,12 @@ class ReflectPlayer(Player):
 
     def move(self):
         return self.my_move
-    
-    
+
+
 class CyclePlayer(Player):
     def __init__(self):
         self.next_move = itertools.cycle(moves)
+
     def move(self):
         return self.next_move
 
