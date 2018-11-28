@@ -102,5 +102,5 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), CyclePlayer())
+    game = Game(HumanPlayer(), ReflectPlayer())
     game.play_game()
