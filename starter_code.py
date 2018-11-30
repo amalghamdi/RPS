@@ -26,7 +26,10 @@ def roundsOfPlay():
             continue
         return int(rounds)
     
-    
+class RockPlayer(Player):
+    def move(self):
+        return moves[0]
+
 class RandomPlayer(Player):
     def move(self):
         return random.choice(moves)
