@@ -18,9 +18,15 @@ class Player:
         self.my_move = their_move
         self.next_move = their_move
 
-# Create a player subclass that plays randomly
-
-
+def roundsOfPlay():
+    while True:
+        rounds = input("How many rounds you wants to play?")
+        if not rounds.isdigit():
+            print("Enter numbers only")
+            continue
+        return int(rounds)
+    
+    
 class RandomPlayer(Player):
     def move(self):
         return random.choice(moves)
@@ -29,7 +35,7 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
     def move(self):
         while True:
-            your_move = input("rock, paper, scissor?")
+            your_move = input("rock, paper, scissors?")
             if your_move in moves:
                 return your_move
             else:
@@ -80,9 +86,9 @@ class Game:
             print("----** Player Two wins! **----")
             self.p2.score += 1
 
-    def play_game(self):
+    def play_game(self, rounds=3):
         print("Game start!")
-        for round in range(1, 4):
+        for round in range(rounds):
             print(f"Round {round}:")
             self.play_round()
             print("----------------------------")
@@ -102,5 +108,6 @@ class Game:
 
 
 if __name__ == '__main__':
+    rounds = roundsOfPlay()
     game = Game(HumanPlayer(), ReflectPlayer())
-    game.play_game()
+    game.play_game(int(rounds))
