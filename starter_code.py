@@ -41,7 +41,7 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
     def move(self):
         while True:
-            your_move = input("rock, paper, scissors?")
+            your_move = input("rock, paper, scissors?").lower()
             if your_move in moves:
                 return your_move
             else:
