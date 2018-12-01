@@ -110,7 +110,6 @@ class Game:
             print('Player two wins!')
         else:
             print('Tie!')
-# Change the code so it plays a game between two RandomPlayer objects
 
 
 if __name__ == '__main__':
