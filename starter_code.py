@@ -88,6 +88,7 @@ class Game:
         else:
             print("----** Player Two wins! **----")
             self.p2.score += 1
+        self.result()
 
     def play_game(self, rounds=3):
         print("Game start!")
@@ -95,7 +96,6 @@ class Game:
             print(f"Round {round}:")
             self.play_round()
             print("----------------------------")
-        self.result()
         print("Game over!")
 
     def result(self):
