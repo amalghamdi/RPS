@@ -18,6 +18,7 @@ class Player:
         self.my_move = their_move
         self.next_move = their_move
 
+
 def roundsOfPlay():
     while True:
         rounds = input("How many rounds you wants to play?")
@@ -25,10 +26,12 @@ def roundsOfPlay():
             print("Enter numbers only")
             continue
         return int(rounds)
-    
+
+
 class RockPlayer(Player):
     def move(self):
         return moves[0]
+
 
 class RandomPlayer(Player):
     def move(self):
