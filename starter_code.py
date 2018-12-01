@@ -3,7 +3,6 @@
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
 import random
-import itertools
 moves = ['rock', 'paper', 'scissors']
 
 """The Player class is the parent class for all of the Players
@@ -16,7 +15,8 @@ class Player:
 
     def learn(self, my_move, their_move):
         self.my_move = their_move
-        self.next_move = their_move
+        self.next_move = moves.index(my_move)
+        self.next_move +=1
 
 
 def roundsOfPlay():
@@ -58,10 +58,10 @@ class ReflectPlayer(Player):
 
 class CyclePlayer(Player):
     def __init__(self):
-        self.next_move = itertools.cycle(moves)
+        self.next_move = 0
 
     def move(self):
-        return self.next_move
+        return moves[self.next_move]
 
 
 def beats(one, two):
@@ -115,5 +115,5 @@ class Game:
 
 if __name__ == '__main__':
     rounds = roundsOfPlay()
-    game = Game(HumanPlayer(), ReflectPlayer())
+    game = Game(HumanPlayer(), CyclePlayer())
     game.play_game(int(rounds))
