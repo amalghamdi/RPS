@@ -16,7 +16,7 @@ class Player:
     def learn(self, my_move, their_move):
         self.my_move = their_move
         self.next_move = moves.index(my_move)
-        self.next_move +=1
+        self.next_move += 1
 
 
 def roundsOfPlay():
